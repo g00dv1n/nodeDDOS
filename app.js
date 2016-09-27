@@ -4,9 +4,10 @@
 
 var rp = require('request-promise');
 
-const url = 'http://www.system-tips.net/'
+const url1 = 'http://www.system-tips.net/'
+const url2 = 'http://www.nailovsky.com/';
 const getHome = () => {
-    rp(url)
+    rp(url2)
         .then((htmlString) => {
             console.log('OK!');
         })
