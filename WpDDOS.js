@@ -5,7 +5,7 @@
 
 let rp = require('request-promise');
 let config = require('./config');
-let co = require('co');
+
 
 class WpDDOS {
     constructor(urls) {
@@ -94,12 +94,3 @@ class WpDDOS {
 
 module.exports = WpDDOS;
 
-// tests
-(()=>{
-    let wp = new WpDDOS(config.URLS);
-    let task = function () {
-        wp.runAll();
-    };
-    setInterval(task, 500);
-
-})();
