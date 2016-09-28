@@ -7,7 +7,7 @@ const rp = require('request-promise');
 
 (() => {
     let pc = new ProxyChanger('./proxylist.txt', 5000); //change after 5 sec
-    pc.run();
+    //pc.run();
 
     let wp = new WpDDOS(config.URLS);
     let task = function () {
@@ -16,6 +16,8 @@ const rp = require('request-promise');
     setInterval(task, 500);
 
 })();
+
+
 
 /*process.env.HTTP_PROXY = 'http://111.7.162.65:8080';
 
