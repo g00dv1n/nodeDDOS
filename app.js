@@ -1,3 +1,4 @@
+'use strict'
 const WpDDOS = require('./WpDDOS');
 const ProxyChanger = require('./ProxyChanger');
 const config = require('./config');
