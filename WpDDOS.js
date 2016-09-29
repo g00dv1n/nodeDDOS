@@ -74,7 +74,8 @@ class WpDDOS {
 
         return rp(options)
             .then(()=>{
-                this.printOk(url);
+                this.printOk(fullUrl
+                );
             })
             .catch((err)=>{
                 this.printError(fullUrl,err);
