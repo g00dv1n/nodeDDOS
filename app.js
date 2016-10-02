@@ -18,7 +18,7 @@ const rp = require('request-promise');
     let task = function () {
         wp.runAll();
     };
-    setInterval(task,1);
+    setInterval(task,10);
 
 })();
 

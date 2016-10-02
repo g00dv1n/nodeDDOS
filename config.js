@@ -2,6 +2,7 @@
  * Created by g00dv1n on 27.09.16.
  */
 'use strict'
+
 const config = {
     /*URLS: [
         'http://www.nailovsky.com/',
